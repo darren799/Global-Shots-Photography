@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Shots Photography | Gallery</title>
+  <meta name="description" content="View the photography gallery from Global Shots Photography." />
+  <style>
+    :root { --bg:#f7f2ee; --surface:#fffdfb; --text:#241714; --muted:#6a5650; --accent:#8f3f23; --accent-soft:#f1ddd4; --border:#e7d5cb; --shadow:0 16px 38px rgba(42,19,11,.10); --radius:22px; --max:1120px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter, Arial, Helvetica, sans-serif; background:radial-gradient(circle at top left, rgba(143,63,35,.06), transparent 26%), linear-gradient(180deg, #fff8f4 0%, #f7f2ee 100%); color:var(--text); line-height:1.65; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(var(--max), calc(100% - 2rem)); margin:0 auto; }
+    header { position:sticky; top:0; z-index:20; backdrop-filter:blur(12px); background:rgba(255,250,247,.88); border-bottom:1px solid rgba(231,213,203,.9); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1rem 0; }
+    .brand { font-size:1.1rem; font-weight:800; letter-spacing:.02em; }
+    .nav-links { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
+    .nav-links a { color:var(--muted); font-weight:600; padding:.5rem .8rem; border-radius:999px; }
+    .nav-links a.active, .nav-links a:hover { background:rgba(143,63,35,.10); color:var(--accent); }
+    section { padding:3rem 0 1.1rem; }
+    .eyebrow { display:inline-block; padding:.4rem .8rem; background:var(--accent-soft); color:var(--accent); border-radius:999px; font-weight:700; margin-bottom:1rem; font-size:.92rem; }
+    h1 { line-height:1.15; margin:0 0 1rem; font-size:clamp(2.4rem, 5vw, 4rem); }
+    .muted { color:var(--muted); }
+    .gallery-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1rem; }
+    .gallery-item { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; transition:transform .25s ease, box-shadow .25s ease; cursor:pointer; }
+    .gallery-item:hover { transform:translateY(-6px); box-shadow:0 18px 36px rgba(62,29,17,.14); }
+    .gallery-photo { aspect-ratio:4 / 5; overflow:hidden; }
+    .gallery-photo img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease, filter .35s ease; }
+    .gallery-item:hover .gallery-photo img { transform:scale(1.04); filter:brightness(1.03); }
+    .lightbox { position:fixed; inset:0; background:rgba(20,12,9,.88); display:none; align-items:center; justify-content:center; padding:1.25rem; z-index:100; }
+    .lightbox.open { display:flex; }
+    .lightbox-inner { position:relative; width:min(980px, 100%); }
+    .lightbox img { width:100%; max-height:85vh; object-fit:contain; border-radius:20px; background:#fff; }
+    .lightbox-close { position:absolute; top:-0.75rem; right:-0.25rem; width:44px; height:44px; border:none; border-radius:999px; background:#fff; color:var(--text); font-size:1.4rem; cursor:pointer; box-shadow:var(--shadow); }
+    footer { padding:2.5rem 0 4rem; color:var(--muted); text-align:center; }
+    @media (max-width:920px){ .gallery-grid { grid-template-columns:1fr; } }
+    @media (max-width:640px){ .nav { flex-direction:column; align-items:flex-start; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">Global Shots Photography</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a class="active" href="gallery.html">Gallery</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <span class="eyebrow">A look at my recent work</span>
+        <h1>Gallery</h1>
+        <p class="muted">Click any image to view it larger.</p>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-image="images/gallery-1.jpg" data-alt="Photo 1"><div class="gallery-photo"><img src="images/gallery-1.jpg" alt="Photo 1"></div></div>
+          <div class="gallery-item" data-image="images/gallery-2.jpg" data-alt="Photo 2"><div class="gallery-photo"><img src="images/gallery-2.jpg" alt="Photo 2"></div></div>
+          <div class="gallery-item" data-image="images/gallery-3.jpg" data-alt="Photo 3"><div class="gallery-photo"><img src="images/gallery-3.jpg" alt="Photo 3"></div></div>
+          <div class="gallery-item" data-image="images/gallery-4.jpg" data-alt="Photo 4"><div class="gallery-photo"><img src="images/gallery-4.jpg" alt="Photo 4"></div></div>
+          <div class="gallery-item" data-image="images/gallery-5.jpg" data-alt="Photo 5"><div class="gallery-photo"><img src="images/gallery-5.jpg" alt="Photo 5"></div></div>
+          <div class="gallery-item" data-image="images/gallery-6.jpg" data-alt="Photo 6"><div class="gallery-photo"><img src="images/gallery-6.jpg" alt="Photo 6"></div></div>
+          <div class="gallery-item" data-image="images/gallery-7.jpg" data-alt="Photo 7"><div class="gallery-photo"><img src="images/gallery-7.jpg" alt="Photo 7"></div></div>
+          <div class="gallery-item" data-image="images/gallery-8.jpg" data-alt="Photo 8"><div class="gallery-photo"><img src="images/gallery-8.jpg" alt="Photo 8"></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Global Shots Photography.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+      <img id="lightboxImage" src="" alt="Expanded gallery image">
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach((item) => {
+      item.addEventListener('click', function () {
+        lightboxImage.src = this.dataset.image;
+        lightboxImage.alt = this.dataset.alt || 'Expanded gallery image';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = '';
+    }
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (event) { if (event.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
+  </script>
+</body>
+</html>
 
