@@ -242,6 +242,13 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px rgba(62, 29, 17, 0.14);
     }
 
     .gallery-photo {
@@ -249,11 +256,25 @@
       display: grid;
       place-items: center;
       text-align: center;
-      padding: 1.25rem;
+      padding: 0;
       color: var(--muted);
       background:
         linear-gradient(135deg, rgba(166, 75, 42, 0.10), rgba(255,255,255,0.92)),
         rgba(243, 221, 211, 0.35);
+      overflow: hidden;
+    }
+
+    .gallery-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease, filter 0.35s ease;
+      display: block;
+    }
+
+    .gallery-item:hover .gallery-photo img {
+      transform: scale(1.04);
+      filter: brightness(1.03);
     }
 
     .gallery-caption {
@@ -330,6 +351,49 @@
       border-radius: 0 16px 16px 0;
       color: var(--text);
       font-style: italic;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 12, 9, 0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      z-index: 100;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      width: min(980px, 100%);
+    }
+
+    .lightbox img {
+      width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 20px;
+      background: #fff;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -0.75rem;
+      right: -0.25rem;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--text);
+      font-size: 1.4rem;
+      cursor: pointer;
+      box-shadow: var(--shadow);
     }
 
     footer {
@@ -464,14 +528,14 @@
           <p class="muted">A look at my recent work.</p>
         </div>
         <div class="gallery-grid">
-          <div class="gallery-item"><div class="gallery-photo"><img src="images/gallery-1.jpg" alt="Photo 1" style="width:100%; height:100%; object-fit:cover;"></div></div>
-          <div class="gallery-item"><div class="gallery-photo"><img src="images/gallery-2.jpg" alt="Photo 2" style="width:100%; height:100%; object-fit:cover;"></div></div>
-          <div class="gallery-item"><div class="gallery-photo"><img src="images/gallery-3.jpg" alt="Photo 3" style="width:100%; height:100%; object-fit:cover;"></div></div>
-          <div class="gallery-item"><div class="gallery-photo"><img src="images/gallery-4.jpg" alt="Photo 4" style="width:100%; height:100%; object-fit:cover;"></div></div>
-          <div class="gallery-item"><div class="gallery-photo"><img src="images/gallery-5.jpg" alt="Photo 5" style="width:100%; height:100%; object-fit:cover;"></div></div>
-          <div class="gallery-item"><div class="gallery-photo"><img src="images/gallery-6.jpg" alt="Photo 6" style="width:100%; height:100%; object-fit:cover;"></div></div>
-          <div class="gallery-item"><div class="gallery-photo"><img src="images/gallery-7.jpg" alt="Photo 7" style="width:100%; height:100%; object-fit:cover;"></div></div>
-          <div class="gallery-item"><div class="gallery-photo"><img src="images/gallery-8.jpg" alt="Photo 8" style="width:100%; height:100%; object-fit:cover;"></div></div>
+          <div class="gallery-item" data-image="images/gallery-1.jpg" data-alt="Photo 1"><div class="gallery-photo"><img src="images/gallery-1.jpg" alt="Photo 1"></div></div>
+          <div class="gallery-item" data-image="images/gallery-2.jpg" data-alt="Photo 2"><div class="gallery-photo"><img src="images/gallery-2.jpg" alt="Photo 2"></div></div>
+          <div class="gallery-item" data-image="images/gallery-3.jpg" data-alt="Photo 3"><div class="gallery-photo"><img src="images/gallery-3.jpg" alt="Photo 3"></div></div>
+          <div class="gallery-item" data-image="images/gallery-4.jpg" data-alt="Photo 4"><div class="gallery-photo"><img src="images/gallery-4.jpg" alt="Photo 4"></div></div>
+          <div class="gallery-item" data-image="images/gallery-5.jpg" data-alt="Photo 5"><div class="gallery-photo"><img src="images/gallery-5.jpg" alt="Photo 5"></div></div>
+          <div class="gallery-item" data-image="images/gallery-6.jpg" data-alt="Photo 6"><div class="gallery-photo"><img src="images/gallery-6.jpg" alt="Photo 6"></div></div>
+          <div class="gallery-item" data-image="images/gallery-7.jpg" data-alt="Photo 7"><div class="gallery-photo"><img src="images/gallery-7.jpg" alt="Photo 7"></div></div>
+          <div class="gallery-item" data-image="images/gallery-8.jpg" data-alt="Photo 8"><div class="gallery-photo"><img src="images/gallery-8.jpg" alt="Photo 8"></div></div>
         </div>
       </div>
     </section>
@@ -628,6 +692,13 @@
     </div>
   </footer>
 
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+      <img id="lightboxImage" src="" alt="Expanded gallery image">
+    </div>
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -652,6 +723,37 @@
       );
 
       window.location.href = 'mailto:globalshotsphotographyllc@gmail.com?subject=' + subject + '&body=' + body;
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    galleryItems.forEach((item) => {
+      item.addEventListener('click', function () {
+        lightboxImage.src = this.dataset.image;
+        lightboxImage.alt = this.dataset.alt || 'Expanded gallery image';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (event) {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
+      }
     });
   </script>
 </body>
