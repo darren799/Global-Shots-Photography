@@ -7,14 +7,14 @@
   <meta name="description" content="Global Shots Photography by Micaiah Cole — capturing everyday beauty through purpose, creativity, and love." />
   <style>
     :root {
-      --bg: #fffaf7;
-      --surface: #ffffff;
-      --text: #2d1f1a;
-      --muted: #6f5a52;
-      --accent: #a64b2a;
-      --accent-soft: #f3ddd3;
-      --border: #ead8cf;
-      --shadow: 0 12px 30px rgba(62, 29, 17, 0.08);
+      --bg: #f7f2ee;
+      --surface: #fffdfb;
+      --text: #241714;
+      --muted: #6a5650;
+      --accent: #8f3f23;
+      --accent-soft: #f1ddd4;
+      --border: #e7d5cb;
+      --shadow: 0 16px 38px rgba(42, 19, 11, 0.10);
       --radius: 22px;
       --max: 1120px;
     }
@@ -24,7 +24,9 @@
     body {
       margin: 0;
       font-family: Inter, Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top left, rgba(143, 63, 35, 0.06), transparent 26%),
+        linear-gradient(180deg, #fff8f4 0%, #f7f2ee 100%);
       color: var(--text);
       line-height: 1.65;
     }
@@ -39,18 +41,18 @@
 
     .btn {
       display: inline-block;
-      padding: 0.9rem 1.2rem;
+      padding: 0.95rem 1.25rem;
       border-radius: 999px;
-      background: var(--accent);
+      background: linear-gradient(135deg, #8f3f23, #b55c37);
       color: #fff;
       font-weight: 700;
       box-shadow: var(--shadow);
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .btn:hover { transform: translateY(-2px); opacity: 0.95; }
+    .btn:hover { transform: translateY(-3px); opacity: 0.97; box-shadow: 0 20px 40px rgba(42, 19, 11, 0.16); }
     .btn.secondary {
-      background: transparent;
+      background: rgba(255,255,255,0.75);
       color: var(--accent);
       border: 1px solid var(--accent);
       box-shadow: none;
@@ -92,7 +94,7 @@
     }
 
     .hero {
-      padding: 5rem 0 3rem;
+      padding: 5.5rem 0 3.25rem;
     }
 
     .hero-grid {
@@ -136,13 +138,13 @@
     }
 
     .hero-card {
-      padding: 1.5rem;
+      padding: 1rem;
       min-height: 340px;
       display: grid;
       place-items: center;
       background:
-        linear-gradient(135deg, rgba(166, 75, 42, 0.12), rgba(255,255,255,0.96)),
-        radial-gradient(circle at top left, rgba(166, 75, 42, 0.18), transparent 40%),
+        linear-gradient(135deg, rgba(143, 63, 35, 0.14), rgba(255,255,255,0.97)),
+        radial-gradient(circle at top left, rgba(143, 63, 35, 0.18), transparent 40%),
         #fff;
     }
 
@@ -161,7 +163,7 @@
     }
 
     section {
-      padding: 2rem 0 1rem;
+      padding: 2.4rem 0 1.1rem;
     }
 
     .section-head {
@@ -402,6 +404,50 @@
       text-align: center;
     }
 
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.85rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px rgba(42, 19, 11, 0.14);
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      flex: 0 0 18px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     @media (max-width: 920px) {
       .hero-grid,
       .grid-2,
@@ -454,7 +500,7 @@
   </header>
 
   <main>
-    <section class="hero" id="home">
+    <section class="hero reveal" id="home">
       <div class="container hero-grid">
         <div>
           <span class="eyebrow">Detroit-based photography with purpose</span>
@@ -474,7 +520,7 @@
       </div>
     </section>
 
-    <section id="about">
+    <section class="reveal" id="about">
       <div class="container">
         <div class="section-head">
           <h2>About Me</h2>
@@ -491,7 +537,7 @@
       </div>
     </section>
 
-    <section id="why">
+    <section class="reveal" id="why">
       <div class="container">
         <div class="section-head">
           <h2>Why I Started</h2>
@@ -504,7 +550,7 @@
       </div>
     </section>
 
-    <section id="different">
+    <section class="reveal" id="different">
       <div class="container">
         <div class="section-head">
           <h2>What Makes Me Different</h2>
@@ -521,7 +567,7 @@
       </div>
     </section>
 
-    <section id="gallery">
+    <section class="reveal" id="gallery">
       <div class="container">
         <div class="section-head">
           <h2>Gallery</h2>
@@ -540,7 +586,7 @@
       </div>
     </section>
 
-    <section id="packages">
+    <section class="reveal" id="packages">
       <div class="container">
         <div class="section-head">
           <h2>Packages</h2>
@@ -611,7 +657,7 @@
       </div>
     </section>
 
-    <section id="vision">
+    <section class="reveal" id="vision">
       <div class="container vision-wrap">
         <div class="section-head">
           <h2>Vision</h2>
@@ -624,7 +670,7 @@
       </div>
     </section>
 
-    <section id="contact">
+    <section class="reveal" id="contact">
       <div class="container contact-wrap">
         <div class="section-head">
           <h2>Contact</h2>
@@ -677,10 +723,27 @@
 
           <ul class="contact-list">
             <li><strong>Email:</strong> <a href="mailto:globalshotsphotographyllc@gmail.com">globalshotsphotographyllc@gmail.com</a></li>
-                        <li><strong>Instagram:</strong> <a href="https://instagram.com/globalshotsphotography7" target="_blank" rel="noreferrer">@globalshotsphotography7</a></li>
+            <li><strong>Instagram:</strong> <a href="https://instagram.com/globalshotsphotography7" target="_blank" rel="noreferrer">@globalshotsphotography7</a></li>
             <li><strong>Facebook:</strong> Global Shots Photography</li>
             <li><strong>Response time:</strong> 24–48 hours</li>
           </ul>
+
+          <div class="social-row">
+            <a class="social-link" href="https://instagram.com/globalshotsphotography7" target="_blank" rel="noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37a4 4 0 1 1-7.75 1.26 4 4 0 0 1 7.75-1.26z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              Instagram
+            </a>
+            <a class="social-link" href="#" aria-label="Facebook page link to be added later">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"></path>
+              </svg>
+              Facebook
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -755,6 +818,18 @@
         closeLightbox();
       }
     });
+
+    const revealItems = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
   </script>
 </body>
 </html>
