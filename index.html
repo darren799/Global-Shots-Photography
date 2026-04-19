@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Global Shots Photography</title>
+  <title>Global Shots Photography | Home</title>
   <meta name="description" content="Global Shots Photography by Micaiah Cole — capturing everyday beauty through purpose, creativity, and love." />
   <style>
     :root {
@@ -18,506 +18,70 @@
       --radius: 22px;
       --max: 1120px;
     }
-
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Inter, Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(143, 63, 35, 0.06), transparent 26%),
-        linear-gradient(180deg, #fff8f4 0%, #f7f2ee 100%);
+      background: radial-gradient(circle at top left, rgba(143, 63, 35, 0.06), transparent 26%), linear-gradient(180deg, #fff8f4 0%, #f7f2ee 100%);
       color: var(--text);
       line-height: 1.65;
     }
-
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      width: min(var(--max), calc(100% - 2rem));
-      margin: 0 auto;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.95rem 1.25rem;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #8f3f23, #b55c37);
-      color: #fff;
-      font-weight: 700;
-      box-shadow: var(--shadow);
-      transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .btn:hover { transform: translateY(-3px); opacity: 0.97; box-shadow: 0 20px 40px rgba(42, 19, 11, 0.16); }
-    .btn.secondary {
-      background: rgba(255,255,255,0.75);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      box-shadow: none;
-    }
-
+    .container { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
     header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(12px);
-      background: rgba(255, 250, 247, 0.88);
-      border-bottom: 1px solid rgba(234, 216, 207, 0.9);
+      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(12px);
+      background: rgba(255, 250, 247, 0.88); border-bottom: 1px solid rgba(231, 213, 203, 0.9);
     }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1rem 0;
-    }
-
-    .brand {
-      font-size: 1.1rem;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-weight: 600;
-      padding: 0.5rem 0.8rem;
-      border-radius: 999px;
-      transition: background 0.25s ease, color 0.25s ease;
-    }
-
-    .nav-links a.active,
-    .nav-links a:hover {
-      background: rgba(143, 63, 35, 0.10);
-      color: var(--accent);
-    }
-
-    .hero {
-      padding: 5.5rem 0 3.25rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 0.4rem 0.8rem;
-      background: var(--accent-soft);
-      color: var(--accent);
-      border-radius: 999px;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      font-size: 0.92rem;
-    }
-
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; }
+    .brand { font-size: 1.1rem; font-weight: 800; letter-spacing: 0.02em; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+    .nav-links a { color: var(--muted); font-weight: 600; padding: 0.5rem 0.8rem; border-radius: 999px; }
+    .nav-links a.active, .nav-links a:hover { background: rgba(143, 63, 35, 0.10); color: var(--accent); }
+    .hero { padding: 5.5rem 0 3.25rem; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: center; }
+    .eyebrow { display: inline-block; padding: 0.4rem 0.8rem; background: var(--accent-soft); color: var(--accent); border-radius: 999px; font-weight: 700; margin-bottom: 1rem; font-size: 0.92rem; }
     h1, h2, h3 { line-height: 1.15; margin: 0 0 1rem; }
     h1 { font-size: clamp(2.6rem, 6vw, 4.7rem); }
-    h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
-    h3 { font-size: 1.25rem; }
-
-    .lead {
-      font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 60ch;
-    }
-
-    .hero-card,
-    .card,
-    .package,
-    .contact-card,
-    .vision-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
+    .lead { font-size: 1.15rem; color: var(--muted); max-width: 60ch; }
+    .hero-card, .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
     .hero-card {
-      padding: 1rem;
-      min-height: 340px;
-      display: grid;
-      place-items: center;
-      background:
-        linear-gradient(135deg, rgba(143, 63, 35, 0.14), rgba(255,255,255,0.97)),
-        radial-gradient(circle at top left, rgba(143, 63, 35, 0.18), transparent 40%),
-        #fff;
+      padding: 1rem; min-height: 340px; display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(143, 63, 35, 0.14), rgba(255,255,255,0.97)), radial-gradient(circle at top left, rgba(143, 63, 35, 0.18), transparent 40%), #fff;
     }
-
-    .photo-placeholder {
-      width: 100%;
-      height: 100%;
-      min-height: 300px;
-      border-radius: 18px;
-      border: 1px dashed var(--border);
-      display: grid;
-      place-items: center;
-      text-align: center;
-      color: var(--muted);
-      padding: 2rem;
-      background: rgba(243, 221, 211, 0.35);
+    .hero-card img { border-radius: 18px; width: 100%; height: 100%; object-fit: cover; }
+    .btn {
+      display: inline-block; padding: 0.95rem 1.25rem; border-radius: 999px;
+      background: linear-gradient(135deg, #8f3f23, #b55c37); color: #fff; font-weight: 700;
+      box-shadow: var(--shadow); transition: transform 0.25s ease;
     }
-
-    section {
-      padding: 2.4rem 0 1.1rem;
-    }
-
-    .tab-panel {
-      display: none;
-      min-height: calc(100vh - 180px);
-    }
-
-    .tab-panel.active {
-      display: block;
-    }
-
-    .section-head {
-      margin-bottom: 1.4rem;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      padding: 1.5rem;
-    }
-
-    .bullets {
-      padding-left: 1.1rem;
-      margin: 0.8rem 0 0;
-    }
-
+    .btn:hover { transform: translateY(-3px); }
+    .btn.secondary { background: rgba(255,255,255,0.75); color: var(--accent); border: 1px solid var(--accent); }
+    section { padding: 2.4rem 0 1.1rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+    .card { padding: 1.5rem; }
+    .bullets { padding-left: 1.1rem; margin: 0.8rem 0 0; }
     .bullets li { margin: 0.45rem 0; }
-
-    .packages {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.3rem;
-      align-items: stretch;
-    }
-
-    .package {
-      padding: 1.5rem;
-      position: relative;
-    }
-
-    .package.popular {
-      border: 2px solid var(--accent);
-      transform: translateY(-4px);
-    }
-
-    .tag {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: var(--accent);
-      color: #fff;
-      padding: 0.35rem 0.7rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 800;
-    }
-
-    .price {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--accent);
-      margin: 0.4rem 0 1rem;
-    }
-
-    .muted { color: var(--muted); }
-
-    .contact-wrap,
-    .vision-wrap {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .gallery-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      cursor: pointer;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 36px rgba(62, 29, 17, 0.14);
-    }
-
-    .gallery-photo {
-      aspect-ratio: 4 / 5;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 0;
-      color: var(--muted);
-      background:
-        linear-gradient(135deg, rgba(166, 75, 42, 0.10), rgba(255,255,255,0.92)),
-        rgba(243, 221, 211, 0.35);
-      overflow: hidden;
-    }
-
-    .gallery-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.35s ease, filter 0.35s ease;
-      display: block;
-    }
-
-    .gallery-item:hover .gallery-photo img {
-      transform: scale(1.04);
-      filter: brightness(1.03);
-    }
-
-    .gallery-caption {
-      padding: 1rem 1rem 1.15rem;
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .contact-form {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1.25rem;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .field {
-      display: grid;
-      gap: 0.45rem;
-    }
-
-    .field label {
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .field input,
-    .field textarea,
-    .field select {
-      width: 100%;
-      padding: 0.95rem 1rem;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background: #fff;
-      color: var(--text);
-      font: inherit;
-    }
-
-    .field textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    .form-note {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .contact-card,
-    .vision-card {
-      padding: 1.6rem;
-    }
-
-    .contact-list {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0 0;
-    }
-
-    .contact-list li {
-      margin: 0.75rem 0;
-      color: var(--muted);
-    }
-
-    .quote {
-      margin-top: 1rem;
-      padding: 1rem 1.1rem;
-      border-left: 4px solid var(--accent);
-      background: rgba(243, 221, 211, 0.45);
-      border-radius: 0 16px 16px 0;
-      color: var(--text);
-      font-style: italic;
-    }
-
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(20, 12, 9, 0.88);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 1.25rem;
-      z-index: 100;
-    }
-
-    .lightbox.open {
-      display: flex;
-    }
-
-    .lightbox-inner {
-      position: relative;
-      width: min(980px, 100%);
-    }
-
-    .lightbox img {
-      width: 100%;
-      max-height: 85vh;
-      object-fit: contain;
-      border-radius: 20px;
-      background: #fff;
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: -0.75rem;
-      right: -0.25rem;
-      width: 44px;
-      height: 44px;
-      border: none;
-      border-radius: 999px;
-      background: #fff;
-      color: var(--text);
-      font-size: 1.4rem;
-      cursor: pointer;
-      box-shadow: var(--shadow);
-    }
-
-    footer {
-      padding: 2.5rem 0 4rem;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    .social-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 0.85rem 1rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #fff;
-      color: var(--text);
-      font-weight: 700;
-      box-shadow: var(--shadow);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .social-link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 36px rgba(42, 19, 11, 0.14);
-    }
-
-    .icon {
-      width: 18px;
-      height: 18px;
-      display: inline-block;
-      flex: 0 0 18px;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 920px) {
-      .hero-grid,
-      .grid-2,
-      .packages,
-      .gallery-grid,
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .package.popular {
-        transform: none;
-      }
-    }
-
-      .package.popular {
-        transform: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        gap: 0.8rem;
-      }
-
-      .hero {
-        padding-top: 3rem;
-      }
-    }
+    footer { padding: 2.5rem 0 4rem; color: var(--muted); text-align: center; }
+    @media (max-width: 920px) { .hero-grid, .grid-2 { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .nav { flex-direction: column; align-items: flex-start; } .hero { padding-top: 3rem; } }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <a href="#" class="brand" data-tab-link="home">Global Shots Photography</a>
+      <a href="index.html" class="brand">Global Shots Photography</a>
       <nav class="nav-links">
-        <a href="#" data-tab-link="home">Home</a>
-        <a href="#" data-tab-link="about">About</a>
-        <a href="#" data-tab-link="gallery">Gallery</a>
-        <a href="#" data-tab-link="packages">Packages</a>
-        <a href="#" data-tab-link="vision">Vision</a>
-        <a href="#" data-tab-link="contact">Contact</a>
+        <a class="active" href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero reveal tab-panel active" id="home">
+    <section class="hero">
       <div class="container hero-grid">
         <div>
           <span class="eyebrow">Detroit-based photography with purpose</span>
@@ -525,46 +89,25 @@
           <p class="lead"><strong>Welcome to Global Shots Photography</strong>, where every moment is seen through a lens of purpose, creativity, and love.</p>
           <p class="lead">Hi! I’m Micaiah Cole, a Detroit-based photographer passionate about capturing the beauty in everyday life. Whether it’s people, nature, or special moments, my goal is to create photos that feel real, meaningful, and full of life.</p>
           <div style="display:flex; gap:0.9rem; flex-wrap:wrap; margin-top:1.5rem;">
-            <a class="btn" href="#contact">Book a Session</a>
-            <a class="btn secondary" href="#packages">View Packages</a>
+            <a class="btn" href="contact.html">Book a Session</a>
+            <a class="btn secondary" href="packages.html">View Packages</a>
           </div>
         </div>
         <div class="hero-card">
-          <img src="images/hero.jpg" alt="Micaiah Cole Photography" style="border-radius:18px; width:100%; height:100%; object-fit:cover;">
-        </div>
-      </div>
+          <img src="images/hero.jpg" alt="Micaiah Cole Photography">
         </div>
       </div>
     </section>
 
-    <section class="reveal tab-panel" id="about">
-      <div class="container">
-        <div class="section-head">
-          <h2>About Me</h2>
-        </div>
-        <div class="grid-2">
-          <div class="card">
-            <p>I’m an up-and-coming photographer based in Detroit, Michigan, and the creator of Global Shots Photography.</p>
-            <p>Photography started as something I loved, but it quickly became something deeper. I believe God created a beautiful world, and through my photos, I want to reflect that, whether it’s through people, nature, or everyday moments.</p>
-          </div>
-          <div class="card">
-            <p>As a young Black female photographer, I want to create a space where people feel confident, comfortable, and truly seen. My goal is not just to take pictures, but to capture who you are in a genuine and uplifting way.</p>
-          </div>
-        </div>
-
-        <div class="section-head" style="margin-top: 2rem;">
-          <h2>Why I Started</h2>
+    <section>
+      <div class="container grid-2">
+        <div class="card">
+          <h2>My Vision</h2>
+          <p>My vision for Global Shots Photography is to grow into a brand that represents creativity, confidence, and purpose.</p>
+          <p>I want my work to reflect not only beauty but also meaning, showing people how special they are and capturing the world in a way that honors God’s creation.</p>
         </div>
         <div class="card">
-          <p>I started Global Shots Photography because I wanted to turn my passion into something meaningful.</p>
-          <p>Photography allows me to capture moments that people can look back on forever, but it also allows me to show the beauty in the world around us, something I believe is a reflection of God’s creation.</p>
-          <p>I wanted to create something that not only produces great photos but also makes people feel confident, appreciated, and valued.</p>
-        </div>
-
-        <div class="section-head" style="margin-top: 2rem;">
           <h2>What Makes Me Different</h2>
-        </div>
-        <div class="card">
           <ul class="bullets">
             <li>I focus on capturing natural, real moments.</li>
             <li>I create a comfortable and positive environment.</li>
@@ -572,187 +115,6 @@
             <li>I pay attention to the details that make each photo unique.</li>
             <li>My work is inspired by faith, purpose, and genuine beauty.</li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="reveal tab-panel" id="gallery">
-      <div class="container">
-        <div class="section-head">
-          <h2>Gallery</h2>
-          <p class="muted">A look at my recent work.</p>
-        </div>
-        <div class="gallery-grid">
-          <div class="gallery-item" data-image="images/gallery-1.jpg" data-alt="Photo 1"><div class="gallery-photo"><img src="images/gallery-1.jpg" alt="Photo 1"></div></div>
-          <div class="gallery-item" data-image="images/gallery-2.jpg" data-alt="Photo 2"><div class="gallery-photo"><img src="images/gallery-2.jpg" alt="Photo 2"></div></div>
-          <div class="gallery-item" data-image="images/gallery-3.jpg" data-alt="Photo 3"><div class="gallery-photo"><img src="images/gallery-3.jpg" alt="Photo 3"></div></div>
-          <div class="gallery-item" data-image="images/gallery-4.jpg" data-alt="Photo 4"><div class="gallery-photo"><img src="images/gallery-4.jpg" alt="Photo 4"></div></div>
-          <div class="gallery-item" data-image="images/gallery-5.jpg" data-alt="Photo 5"><div class="gallery-photo"><img src="images/gallery-5.jpg" alt="Photo 5"></div></div>
-          <div class="gallery-item" data-image="images/gallery-6.jpg" data-alt="Photo 6"><div class="gallery-photo"><img src="images/gallery-6.jpg" alt="Photo 6"></div></div>
-          <div class="gallery-item" data-image="images/gallery-7.jpg" data-alt="Photo 7"><div class="gallery-photo"><img src="images/gallery-7.jpg" alt="Photo 7"></div></div>
-          <div class="gallery-item" data-image="images/gallery-8.jpg" data-alt="Photo 8"><div class="gallery-photo"><img src="images/gallery-8.jpg" alt="Photo 8"></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="reveal tab-panel" id="packages">
-      <div class="container">
-        <div class="section-head">
-          <h2>Packages</h2>
-          <p class="muted">Choose the experience that fits your vision best.</p>
-        </div>
-        <div class="packages">
-          <article class="package">
-            <h3>Basic Session</h3>
-            <div class="price">$65</div>
-            <p class="muted">Perfect for quick, simple shoots.</p>
-            <ul class="bullets">
-              <li>30-minute photoshoot</li>
-              <li>1 location</li>
-              <li>1 outfit</li>
-              <li>8–12 edited photos</li>
-              <li>Virtual delivery</li>
-              <li>3–5 day turnaround</li>
-            </ul>
-            <h3 style="margin-top:1.25rem;">Add-ons</h3>
-            <ul class="bullets">
-              <li>Extra edited photos: $10 each</li>
-              <li>Extra outfit: $15</li>
-              <li>Rush delivery: $45</li>
-            </ul>
-          </article>
-
-          <article class="package popular">
-            <span class="tag">Most Popular</span>
-            <h3>Standard Session</h3>
-            <div class="price">$120</div>
-            <p class="muted">Most popular option for more variety.</p>
-            <ul class="bullets">
-              <li>1-hour photoshoot</li>
-              <li>1–2 locations</li>
-              <li>2 outfits</li>
-              <li>15–20 edited photos</li>
-              <li>Virtual delivery</li>
-              <li>3–5 day turnaround</li>
-            </ul>
-            <h3 style="margin-top:1.25rem;">Add-ons</h3>
-            <ul class="bullets">
-              <li>Extra edited photos: $15 each</li>
-              <li>Extra outfit: $20</li>
-              <li>Rush delivery: $50</li>
-            </ul>
-          </article>
-
-          <article class="package">
-            <h3>Premium Experience</h3>
-            <div class="price">$200</div>
-            <p class="muted">Full, creative photoshoot experience.</p>
-            <ul class="bullets">
-              <li>1.5–2 hour photoshoot</li>
-              <li>2–3 locations</li>
-              <li>2–3 outfit changes</li>
-              <li>25–35 edited photos</li>
-              <li>Online delivery</li>
-              <li>Priority editing (1–3 days)</li>
-            </ul>
-            <h3 style="margin-top:1.25rem;">Add-ons</h3>
-            <ul class="bullets">
-              <li>Extra edited photos: $20 each</li>
-              <li>Extra outfit: $25</li>
-              <li>Rush delivery: $55</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="reveal tab-panel" id="vision">
-      <div class="container vision-wrap">
-        <div class="section-head">
-          <h2>Vision</h2>
-        </div>
-        <div class="vision-card">
-          <p>My vision for Global Shots Photography is to grow into a brand that represents creativity, confidence, and purpose.</p>
-          <p>I want my work to reflect not only beauty but also meaning, showing people how special they are and capturing the world in a way that honors God’s creation.</p>
-          <div class="quote">“Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.” — Matthew 5:16</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="reveal tab-panel" id="contact">
-      <div class="container contact-wrap">
-        <div class="section-head">
-          <h2>Contact</h2>
-        </div>
-        <div class="contact-card">
-          <p><strong>Ready to capture your moment?</strong> I’d love to work with you!</p>
-          <p>Please include your type of shoot, preferred date and time, and any ideas or inspiration.</p>
-
-          <form class="contact-form" id="contactForm">
-            <div class="form-grid">
-              <div class="field">
-                <label for="name">Your Name</label>
-                <input id="name" name="name" type="text" placeholder="Enter your name" required />
-              </div>
-              <div class="field">
-                <label for="email">Your Email</label>
-                <input id="email" name="email" type="email" placeholder="Enter your email" required />
-              </div>
-            </div>
-
-            <div class="form-grid">
-              <div class="field">
-                <label for="shootType">Type of Shoot</label>
-                <select id="shootType" name="shootType" required>
-                  <option value="">Select one</option>
-                  <option>Portrait</option>
-                  <option>Family</option>
-                  <option>Graduation</option>
-                  <option>Event</option>
-                  <option>Outdoor / Nature</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="datetime">Preferred Date and Time</label>
-                <input id="datetime" name="datetime" type="text" placeholder="Example: Saturday at 3 PM" required />
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="ideas">Ideas or Inspiration</label>
-              <textarea id="ideas" name="ideas" placeholder="Share any ideas, style preferences, or inspiration for your shoot."></textarea>
-            </div>
-
-            <div style="display:flex; gap:0.9rem; flex-wrap:wrap; align-items:center;">
-              <button type="submit" class="btn" style="border:none; cursor:pointer;">Send Booking Request</button>
-              <span class="form-note">This opens your email app with the details filled in.</span>
-            </div>
-          </form>
-
-          <ul class="contact-list">
-            <li><strong>Email:</strong> <a href="mailto:globalshotsphotographyllc@gmail.com">globalshotsphotographyllc@gmail.com</a></li>
-            <li><strong>Instagram:</strong> <a href="https://instagram.com/globalshotsphotography7" target="_blank" rel="noreferrer">@globalshotsphotography7</a></li>
-            <li><strong>Facebook:</strong> Global Shots Photography</li>
-            <li><strong>Response time:</strong> 24–48 hours</li>
-          </ul>
-
-          <div class="social-row">
-            <a class="social-link" href="https://instagram.com/globalshotsphotography7" target="_blank" rel="noreferrer">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37a4 4 0 1 1-7.75 1.26 4 4 0 0 1 7.75-1.26z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-              Instagram
-            </a>
-            <a class="social-link" href="https://www.facebook.com/share/1Ca8NCjiod/?mibextid=wwXIfr" target="_blank" rel="noreferrer">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"></path>
-              </svg>
-              Facebook
-            </a>
-          </div>
         </div>
       </div>
     </section>
@@ -764,98 +126,6 @@
     </div>
   </footer>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox-inner">
-      <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
-      <img id="lightboxImage" src="" alt="Expanded gallery image">
-    </div>
-  </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const shootType = document.getElementById('shootType').value.trim();
-      const datetime = document.getElementById('datetime').value.trim();
-      const ideas = document.getElementById('ideas').value.trim();
-
-      const subject = encodeURIComponent('Booking Request - ' + shootType);
-      const body = encodeURIComponent(
-        'Hello Global Shots Photography,%0D%0A%0D%0A' +
-        'My name is ' + name + '.%0D%0A' +
-        'My email is ' + email + '.%0D%0A' +
-        'Type of shoot: ' + shootType + '%0D%0A' +
-        'Preferred date/time: ' + datetime + '%0D%0A' +
-        'Ideas or inspiration: ' + ideas + '%0D%0A%0D%0A' +
-        'Thank you!'
-      );
-
-      window.location.href = 'mailto:globalshotsphotographyllc@gmail.com?subject=' + subject + '&body=' + body;
-    });
-
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-
-    galleryItems.forEach((item) => {
-      item.addEventListener('click', function () {
-        lightboxImage.src = this.dataset.image;
-        lightboxImage.alt = this.dataset.alt || 'Expanded gallery image';
-        lightbox.classList.add('open');
-        lightbox.setAttribute('aria-hidden', 'false');
-      });
-    });
-
-    function closeLightbox() {
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      lightboxImage.src = '';
-    }
-
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', function (event) {
-      if (event.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && lightbox.classList.contains('open')) {
-        closeLightbox();
-      }
-    });
-
-    const tabLinks = document.querySelectorAll('[data-tab-link]');
-    const tabPanels = document.querySelectorAll('.tab-panel');
-
-    function showTab(tabId) {
-      tabPanels.forEach((panel) => {
-        panel.classList.remove('active', 'visible');
-      });
-
-      tabLinks.forEach((link) => {
-        link.classList.toggle('active', link.dataset.tabLink === tabId);
-      });
-
-      const targetPanel = document.getElementById(tabId);
-      if (targetPanel) {
-        targetPanel.classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        requestAnimationFrame(() => targetPanel.classList.add('visible'));
-      }
-    }
-
-    tabLinks.forEach((link) => {
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
-        showTab(this.dataset.tabLink);
-      });
-    });
-
-    showTab('home');
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
