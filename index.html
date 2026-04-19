@@ -4,73 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Global Shots Photography | Home</title>
-  <meta name="description" content="Global Shots Photography by Micaiah Cole — capturing everyday beauty through purpose, creativity, and love.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a href="index.html" class="brand">Global Shots Photography</a>
-      <nav class="nav-links">
-        <a class="active" href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="packages.html">Packages</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Detroit-based photography with purpose</span>
-          <h1>Capturing Everyday Beauty</h1>
-          <p class="lead"><strong>Welcome to Global Shots Photography</strong>, where every moment is seen through a lens of purpose, creativity, and love.</p>
-          <p class="lead">Hi! I’m Micaiah Cole, a Detroit-based photographer passionate about capturing the beauty in everyday life. Whether it’s people, nature, or special moments, my goal is to create photos that feel real, meaningful, and full of life.</p>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="brand">Global Shots Photography</a>
 
-          <div class="hero-actions">
-            <a class="btn" href="contact.html">Book a Session</a>
-            <a class="btn secondary" href="packages.html">View Packages</a>
-          </div>
-        </div>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
 
-        <div class="hero-card">
-          <img src="images/hero.jpg" alt="Global Shots Photography hero image">
-        </div>
-      </div>
-    </section>
+    <nav class="nav-links" id="site-nav">
+      <a class="active" href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="packages.html">Packages</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <section>
-      <div class="container grid-2">
-        <div class="card">
-          <h2>My Vision</h2>
-          <p>My vision for Global Shots Photography is to grow into a brand that represents creativity, confidence, and purpose.</p>
-          <p>I want my work to reflect not only beauty but also meaning, showing people how special they are and capturing the world in a way that honors God’s creation.</p>
-          <p><em>“Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.” — Matthew 5:16</em></p>
-        </div>
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Capturing Everyday Beauty</h1>
+        <p class="lead">Welcome to Global Shots Photography, where every moment is seen through purpose, creativity, and love.</p>
 
-        <div class="card">
-          <h2>What Makes Me Different</h2>
-          <ul class="bullets">
-            <li>I focus on capturing natural, real moments.</li>
-            <li>I create a comfortable and positive environment.</li>
-            <li>I bring creativity and fresh ideas to every shoot.</li>
-            <li>I pay attention to the details that make each photo unique.</li>
-            <li>My work is inspired by faith, purpose, and genuine beauty.</li>
-          </ul>
+        <div class="hero-actions">
+          <a class="btn" href="contact.html">Book a Session</a>
+          <a class="btn secondary" href="packages.html">View Packages</a>
         </div>
       </div>
-    </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <p>© <span id="year"></span> Global Shots Photography. Crafted with purpose, creativity, and love.</p>
+      <div class="hero-card">
+        <img src="images/hero.jpg" alt="Hero Image">
+      </div>
     </div>
-  </footer>
+  </section>
+</main>
 
-  <script src="script.js"></script>
+<footer>
+  <p>© <span id="year"></span> Global Shots Photography</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
