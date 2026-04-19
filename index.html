@@ -91,6 +91,15 @@
     .nav-links a {
       color: var(--muted);
       font-weight: 600;
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      background: rgba(143, 63, 35, 0.10);
+      color: var(--accent);
     }
 
     .hero {
@@ -164,6 +173,15 @@
 
     section {
       padding: 2.4rem 0 1.1rem;
+    }
+
+    .tab-panel {
+      display: none;
+      min-height: calc(100vh - 180px);
+    }
+
+    .tab-panel.active {
+      display: block;
     }
 
     .section-head {
@@ -486,21 +504,20 @@
 <body>
   <header>
     <div class="container nav">
-      <a href="#home" class="brand">Global Shots Photography</a>
+      <a href="#" class="brand" data-tab-link="home">Global Shots Photography</a>
       <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#why">Why I Started</a>
-        <a href="#different">What Makes Me Different</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#packages">Packages</a>
-        <a href="#vision">Vision</a>
-        <a href="#contact">Contact</a>
+        <a href="#" data-tab-link="home">Home</a>
+        <a href="#" data-tab-link="about">About</a>
+        <a href="#" data-tab-link="gallery">Gallery</a>
+        <a href="#" data-tab-link="packages">Packages</a>
+        <a href="#" data-tab-link="vision">Vision</a>
+        <a href="#" data-tab-link="contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero reveal" id="home">
+    <section class="hero reveal tab-panel active" id="home">
       <div class="container hero-grid">
         <div>
           <span class="eyebrow">Detroit-based photography with purpose</span>
@@ -520,7 +537,7 @@
       </div>
     </section>
 
-    <section class="reveal" id="about">
+    <section class="reveal tab-panel" id="about">
       <div class="container">
         <div class="section-head">
           <h2>About Me</h2>
@@ -531,15 +548,11 @@
             <p>Photography started as something I loved, but it quickly became something deeper. I believe God created a beautiful world, and through my photos, I want to reflect that, whether it’s through people, nature, or everyday moments.</p>
           </div>
           <div class="card">
-            <p>As a young Black female photographer, I also want to create a space where people feel confident, comfortable, and truly seen. My goal is not just to take pictures, but to capture who you are in a genuine and uplifting way.</p>
+            <p>As a young Black female photographer, I want to create a space where people feel confident, comfortable, and truly seen. My goal is not just to take pictures, but to capture who you are in a genuine and uplifting way.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="reveal" id="why">
-      <div class="container">
-        <div class="section-head">
+        <div class="section-head" style="margin-top: 2rem;">
           <h2>Why I Started</h2>
         </div>
         <div class="card">
@@ -547,12 +560,8 @@
           <p>Photography allows me to capture moments that people can look back on forever, but it also allows me to show the beauty in the world around us, something I believe is a reflection of God’s creation.</p>
           <p>I wanted to create something that not only produces great photos but also makes people feel confident, appreciated, and valued.</p>
         </div>
-      </div>
-    </section>
 
-    <section class="reveal" id="different">
-      <div class="container">
-        <div class="section-head">
+        <div class="section-head" style="margin-top: 2rem;">
           <h2>What Makes Me Different</h2>
         </div>
         <div class="card">
@@ -567,7 +576,7 @@
       </div>
     </section>
 
-    <section class="reveal" id="gallery">
+    <section class="reveal tab-panel" id="gallery">
       <div class="container">
         <div class="section-head">
           <h2>Gallery</h2>
@@ -586,7 +595,7 @@
       </div>
     </section>
 
-    <section class="reveal" id="packages">
+    <section class="reveal tab-panel" id="packages">
       <div class="container">
         <div class="section-head">
           <h2>Packages</h2>
@@ -657,7 +666,7 @@
       </div>
     </section>
 
-    <section class="reveal" id="vision">
+    <section class="reveal tab-panel" id="vision">
       <div class="container vision-wrap">
         <div class="section-head">
           <h2>Vision</h2>
@@ -670,7 +679,7 @@
       </div>
     </section>
 
-    <section class="reveal" id="contact">
+    <section class="reveal tab-panel" id="contact">
       <div class="container contact-wrap">
         <div class="section-head">
           <h2>Contact</h2>
@@ -737,7 +746,7 @@
               </svg>
               Instagram
             </a>
-            <a class="social-link" href="#" aria-label="Facebook page link to be added later">
+            <a class="social-link" href="https://www.facebook.com/share/1Ca8NCjiod/?mibextid=wwXIfr" target="_blank" rel="noreferrer">
               <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"></path>
               </svg>
@@ -819,17 +828,34 @@
       }
     });
 
-    const revealItems = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+    const tabLinks = document.querySelectorAll('[data-tab-link]');
+    const tabPanels = document.querySelectorAll('.tab-panel');
 
-    revealItems.forEach((item) => revealObserver.observe(item));
+    function showTab(tabId) {
+      tabPanels.forEach((panel) => {
+        panel.classList.remove('active', 'visible');
+      });
+
+      tabLinks.forEach((link) => {
+        link.classList.toggle('active', link.dataset.tabLink === tabId);
+      });
+
+      const targetPanel = document.getElementById(tabId);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        requestAnimationFrame(() => targetPanel.classList.add('visible'));
+      }
+    }
+
+    tabLinks.forEach((link) => {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        showTab(this.dataset.tabLink);
+      });
+    });
+
+    showTab('home');
   </script>
 </body>
 </html>
