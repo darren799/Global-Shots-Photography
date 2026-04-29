@@ -1,99 +1,100 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
+// Footer year
+const year = document.getElementById("year");
+
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
+
+// Mobile menu
+const menuToggle = document.querySelector(".menu-toggle");
+const siteNav = document.getElementById("site-nav");
+
+if (menuToggle && siteNav) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+
+    menuToggle.setAttribute("aria-expanded", String(!isOpen));
+    siteNav.classList.toggle("open");
+  });
+}
+
+// Auto-generate gallery
+const galleryGrid = document.getElementById("galleryGrid");
+
+if (galleryGrid) {
+  const captions = {
+    1: "Featured Shot",
+    2: "Portrait Work",
+    3: "Pet Photography",
+    4: "Outdoor Moment",
+    5: "Creative Capture",
+    6: "Natural Beauty",
+    7: "Everyday Detail",
+    8: "Fresh Perspective"
+  };
+
+  for (let i = 1; i <= 19; i++) {
+    const src = `images/gallery-${i}.jpg`;
+    const alt = `Gallery photo ${i}`;
+    const caption = captions[i] || "New Shot";
+
+    const item = document.createElement("div");
+    item.className = "gallery-item";
+    item.setAttribute("data-image", src);
+    item.setAttribute("data-alt", alt);
+
+    item.innerHTML = `
+      <div class="gallery-photo">
+        <img src="${src}" alt="${alt}">
+      </div>
+      <div class="gallery-caption">${caption}</div>
+    `;
+
+    galleryGrid.appendChild(item);
   }
+}
 
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
+// Lightbox
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
 
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', function () {
-      const isOpen = navLinks.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-    });
+if (lightbox && lightboxImage && lightboxClose) {
+  document.addEventListener("click", (event) => {
+    const item = event.target.closest(".gallery-item");
 
-    navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', function () {
-        navLinks.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
+    if (!item) return;
 
-    document.addEventListener('click', function (event) {
-      const clickedInsideNav = navLinks.contains(event.target);
-      const clickedToggle = menuToggle.contains(event.target);
+    const imageSrc = item.getAttribute("data-image");
+    const imageAlt = item.getAttribute("data-alt") || "Expanded gallery image";
 
-      if (!clickedInsideNav && !clickedToggle) {
-        navLinks.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
+    lightboxImage.src = imageSrc;
+    lightboxImage.alt = imageAlt;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+  });
 
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (event) {
-      event.preventDefault();
+  lightboxClose.addEventListener("click", () => {
+    closeLightbox();
+  });
 
-      const name = document.getElementById('name')?.value.trim() || '';
-      const email = document.getElementById('email')?.value.trim() || '';
-      const shootType = document.getElementById('shootType')?.value.trim() || '';
-      const datetime = document.getElementById('datetime')?.value.trim() || '';
-      const ideas = document.getElementById('ideas')?.value.trim() || '';
-
-      const subject = encodeURIComponent('Booking Request - ' + shootType);
-      const body = encodeURIComponent(
-        'Hello Global Shots Photography,\n\n' +
-        'My name is ' + name + '.\n' +
-        'My email is ' + email + '.\n' +
-        'Type of shoot: ' + shootType + '\n' +
-        'Preferred date/time: ' + datetime + '\n' +
-        'Ideas or inspiration: ' + ideas + '\n\n' +
-        'Thank you!'
-      );
-
-      window.location.href =
-        'mailto:globalshotsphotographyllc@gmail.com?subject=' +
-        subject +
-        '&body=' +
-        body;
-    });
-  }
-
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImage = document.getElementById('lightboxImage');
-  const lightboxClose = document.getElementById('lightboxClose');
-  const galleryItems = document.querySelectorAll('.gallery-item');
-
-  if (lightbox && lightboxImage && lightboxClose && galleryItems.length) {
-    galleryItems.forEach((item) => {
-      item.addEventListener('click', function () {
-        lightboxImage.src = this.dataset.image || '';
-        lightboxImage.alt = this.dataset.alt || 'Expanded gallery image';
-        lightbox.classList.add('open');
-        lightbox.setAttribute('aria-hidden', 'false');
-      });
-    });
-
-    function closeLightbox() {
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      lightboxImage.src = '';
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
     }
+  });
 
-    lightboxClose.addEventListener('click', closeLightbox);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+  });
+}
 
-    lightbox.addEventListener('click', function (event) {
-      if (event.target === lightbox) {
-        closeLightbox();
-      }
-    });
+function closeLightbox() {
+  if (!lightbox || !lightboxImage) return;
 
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && lightbox.classList.contains('open')) {
-        closeLightbox();
-      }
-    });
-  }
-});
+  lightbox.classList.remove("open");
+  lightbox.setAttribute("aria-hidden", "true");
+  lightboxImage.src = "";
+}
