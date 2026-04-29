@@ -592,3 +592,34 @@ footer {
     padding: 0.9rem 1rem;
   }
 }
+.gallery-photo {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Removes old bottom labels if any still exist */
+.gallery-caption {
+  display: none;
+}
+
+/* Watermark overlay */
+.photo-watermark {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  opacity: 0.75;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+  pointer-events: none;
+  user-select: none;
+}
