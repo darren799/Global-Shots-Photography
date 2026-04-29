@@ -22,21 +22,9 @@ if (menuToggle && siteNav) {
 const galleryGrid = document.getElementById("galleryGrid");
 
 if (galleryGrid) {
-  const captions = {
-    1: "Featured Shot",
-    2: "Portrait Work",
-    3: "Pet Photography",
-    4: "Outdoor Moment",
-    5: "Creative Capture",
-    6: "Natural Beauty",
-    7: "Everyday Detail",
-    8: "Fresh Perspective"
-  };
-
   for (let i = 1; i <= 19; i++) {
     const src = `images/gallery-${i}.jpg`;
     const alt = `Gallery photo ${i}`;
-    const caption = captions[i] || "New Shot";
 
     const item = document.createElement("div");
     item.className = "gallery-item";
@@ -46,8 +34,8 @@ if (galleryGrid) {
     item.innerHTML = `
       <div class="gallery-photo">
         <img src="${src}" alt="${alt}">
+        <div class="photo-watermark">Global Shots Photography</div>
       </div>
-      <div class="gallery-caption">${caption}</div>
     `;
 
     galleryGrid.appendChild(item);
@@ -74,9 +62,7 @@ if (lightbox && lightboxImage && lightboxClose) {
     lightbox.setAttribute("aria-hidden", "false");
   });
 
-  lightboxClose.addEventListener("click", () => {
-    closeLightbox();
-  });
+  lightboxClose.addEventListener("click", closeLightbox);
 
   lightbox.addEventListener("click", (event) => {
     if (event.target === lightbox) {
