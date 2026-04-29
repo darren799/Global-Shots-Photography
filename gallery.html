@@ -1,107 +1,63 @@
-<div class="gallery-grid">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Shots Photography | Gallery</title>
+  <meta name="description" content="View the photography gallery from Global Shots Photography.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">Global Shots Photography</a>
 
-  <!-- 1 -->
-  <div class="gallery-item" data-image="images/gallery-1.jpg" data-alt="Gallery photo 1">
-    <div class="gallery-photo"><img src="images/gallery-1.jpg" alt="Gallery photo 1"></div>
-    <div class="gallery-caption">Featured Shot</div>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav class="nav-links" id="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a class="active" href="gallery.html">Gallery</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <span class="eyebrow">A look at my recent work</span>
+        <h1>Gallery</h1>
+        <p class="muted">A collection of moments captured with creativity, purpose, and genuine beauty. Tap any image to view it larger.</p>
+
+        <!-- AUTO-GENERATED GALLERY -->
+        <div class="gallery-grid" id="galleryGrid"></div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Global Shots Photography.</p>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+      <img id="lightboxImage" src="" alt="Expanded gallery image">
+    </div>
   </div>
 
-  <!-- 2 -->
-  <div class="gallery-item" data-image="images/gallery-2.jpg" data-alt="Gallery photo 2">
-    <div class="gallery-photo"><img src="images/gallery-2.jpg" alt="Gallery photo 2"></div>
-    <div class="gallery-caption">Portrait Work</div>
-  </div>
-
-  <!-- 3 -->
-  <div class="gallery-item" data-image="images/gallery-3.jpg" data-alt="Dog behind fence">
-    <div class="gallery-photo"><img src="images/gallery-3.jpg" alt="Dog behind fence"></div>
-    <div class="gallery-caption">Pet Photography</div>
-  </div>
-
-  <!-- 4 -->
-  <div class="gallery-item" data-image="images/gallery-4.jpg" data-alt="Gallery photo 4">
-    <div class="gallery-photo"><img src="images/gallery-4.jpg" alt="Gallery photo 4"></div>
-    <div class="gallery-caption">Outdoor Moment</div>
-  </div>
-
-  <!-- 5 -->
-  <div class="gallery-item" data-image="images/gallery-5.jpg" data-alt="Gallery photo 5">
-    <div class="gallery-photo"><img src="images/gallery-5.jpg" alt="Gallery photo 5"></div>
-    <div class="gallery-caption">Creative Capture</div>
-  </div>
-
-  <!-- 6 -->
-  <div class="gallery-item" data-image="images/gallery-6.jpg" data-alt="Gallery photo 6">
-    <div class="gallery-photo"><img src="images/gallery-6.jpg" alt="Gallery photo 6"></div>
-    <div class="gallery-caption">Natural Beauty</div>
-  </div>
-
-  <!-- 7 -->
-  <div class="gallery-item" data-image="images/gallery-7.jpg" data-alt="Gallery photo 7">
-    <div class="gallery-photo"><img src="images/gallery-7.jpg" alt="Gallery photo 7"></div>
-    <div class="gallery-caption">Everyday Detail</div>
-  </div>
-
-  <!-- 8 -->
-  <div class="gallery-item" data-image="images/gallery-8.jpg" data-alt="Gallery photo 8">
-    <div class="gallery-photo"><img src="images/gallery-8.jpg" alt="Gallery photo 8"></div>
-    <div class="gallery-caption">Fresh Perspective</div>
-  </div>
-
-  <!-- 9–19 -->
-  <div class="gallery-item" data-image="images/gallery-9.jpg" data-alt="Gallery photo 9">
-    <div class="gallery-photo"><img src="images/gallery-9.jpg" alt="Gallery photo 9"></div>
-    <div class="gallery-caption">New Shot</div>
-  </div>
-
-  <div class="gallery-item" data-image="images/gallery-10.jpg" data-alt="Gallery photo 10">
-    <div class="gallery-photo"><img src="images/gallery-10.jpg" alt="Gallery photo 10"></div>
-    <div class="gallery-caption">New Shot</div>
-  </div>
-
-  <div class="gallery-item" data-image="images/gallery-11.jpg" data-alt="Gallery photo 11">
-    <div class="gallery-photo"><img src="images/gallery-11.jpg" alt="Gallery photo 11"></div>
-    <div class="gallery-caption">New Shot</div>
-  </div>
-
-  <div class="gallery-item" data-image="images/gallery-12.jpg" data-alt="Gallery photo 12">
-    <div class="gallery-photo"><img src="images/gallery-12.jpg" alt="Gallery photo 12"></div>
-    <div class="gallery-caption">New Shot</div>
-  </div>
-
-  <div class="gallery-item" data-image="images/gallery-13.jpg" data-alt="Gallery photo 13">
-    <div class="gallery-photo"><img src="images/gallery-13.jpg" alt="Gallery photo 13"></div>
-    <div class="gallery-caption">New Shot</div>
-  </div>
-
-  <div class="gallery-item" data-image="images/gallery-14.jpg" data-alt="Gallery photo 14">
-    <div class="gallery-photo"><img src="images/gallery-14.jpg" alt="Gallery photo 14"></div>
-    <div class="gallery-caption">New Shot</div>
-  </div>
-
-  <div class="gallery-item" data-image="images/gallery-15.jpg" data-alt="Gallery photo 15">
-    <div class="gallery-photo"><img src="images/gallery-15.jpg" alt="Gallery photo 15"></div>
-    <div class="gallery-caption">New Shot</div>
-  </div>
-
-  <div class="gallery-item" data-image="images/gallery-16.jpg" data-alt="Gallery photo 16">
-    <div class="gallery-photo"><img src="images/gallery-16.jpg" alt="Gallery photo 16"></div>
-    <div class="gallery-caption">New Shot</div>
-  </div>
-
-  <div class="gallery-item" data-image="images/gallery-17.jpg" data-alt="Gallery photo 17">
-    <div class="gallery-photo"><img src="images/gallery-17.jpg" alt="Gallery photo 17"></div>
-    <div class="gallery-caption">New Shot</div>
-  </div>
-
-  <div class="gallery-item" data-image="images/gallery-18.jpg" data-alt="Gallery photo 18">
-    <div class="gallery-photo"><img src="images/gallery-18.jpg" alt="Gallery photo 18"></div>
-    <div class="gallery-caption">New Shot</div>
-  </div>
-
-  <div class="gallery-item" data-image="images/gallery-19.jpg" data-alt="Gallery photo 19">
-    <div class="gallery-photo"><img src="images/gallery-19.jpg" alt="Gallery photo 19"></div>
-    <div class="gallery-caption">New Shot</div>
-  </div>
-
-</div>
+  <script src="script.js"></script>
+</body>
+</html>
