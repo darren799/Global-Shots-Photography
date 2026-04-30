@@ -1,41 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Shots Photography | Contact</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<div class="container nav">
-<a href="index.html" class="brand">Global Shots Photography</a>
+  <div class="container nav">
+    <a href="index.html" class="brand">Global Shots Photography</a>
 
-<button class="menu-toggle">☰</button>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      ☰
+    </button>
 
-<nav class="nav-links">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="gallery.html">Gallery</a>
-<a href="packages.html">Packages</a>
-<a class="active" href="contact.html">Contact</a>
-</nav>
-</div>
+    <nav class="nav-links" id="site-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="packages.html">Packages</a>
+      <a class="active" href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<main class="container">
-<h1>Contact</h1>
+<!-- HERO -->
+<section class="hero about-hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Get In Touch</p>
 
-<p>Email: globalshotsphotographyllc@gmail.com</p>
+      <h1>Let’s Capture Your Moment</h1>
+
+      <p class="lead">
+        Ready to book a session or have questions? Reach out and let’s create something
+        beautiful together.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn" href="mailto:globalshotsphotographyllc@gmail.com">Email Now</a>
+        <a class="btn secondary" href="packages.html">View Packages</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <img src="images/hero.jpg" alt="Photography contact session">
+    </div>
+  </div>
+</section>
+
+<main>
+
+  <!-- CONTACT SECTION -->
+  <section class="premium-section">
+    <div class="container">
+
+      <div class="section-heading">
+        <p class="eyebrow">Contact Information</p>
+        <h2>Start Your Session</h2>
+        <p class="muted">
+          Reach out directly or send a message to begin your booking.
+        </p>
+      </div>
+
+      <div class="grid-2">
+
+        <!-- CONTACT INFO -->
+        <div class="card premium-card">
+          <h3>Email</h3>
+          <p>
+            <a href="mailto:globalshotsphotographyllc@gmail.com">
+              globalshotsphotographyllc@gmail.com
+            </a>
+          </p>
+
+          <h3 style="margin-top:20px;">Availability</h3>
+          <p>
+            Sessions available by appointment. Flexible scheduling for weekdays and weekends.
+          </p>
+
+          <h3 style="margin-top:20px;">Location</h3>
+          <p>
+            Based in Detroit, Michigan. Travel sessions may be available upon request.
+          </p>
+        </div>
+
+        <!-- SIMPLE CONTACT FORM (FRONTEND ONLY) -->
+        <div class="card premium-card">
+          <h3>Send a Message</h3>
+
+          <form>
+            <div style="margin-bottom:12px;">
+              <input type="text" placeholder="Your Name" required style="width:100%; padding:10px; border:1px solid #e5e7eb; border-radius:8px;">
+            </div>
+
+            <div style="margin-bottom:12px;">
+              <input type="email" placeholder="Your Email" required style="width:100%; padding:10px; border:1px solid #e5e7eb; border-radius:8px;">
+            </div>
+
+            <div style="margin-bottom:12px;">
+              <textarea placeholder="Tell me about your session..." rows="4" required style="width:100%; padding:10px; border:1px solid #e5e7eb; border-radius:8px;"></textarea>
+            </div>
+
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 </main>
 
 <footer>
-<p>© <span id="year"></span></p>
+  <div class="container">
+    <p>© <span id="year"></span> Global Shots Photography</p>
+  </div>
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>
