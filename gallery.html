@@ -7,57 +7,92 @@
   <meta name="description" content="View the photography gallery from Global Shots Photography.">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header>
-    <div class="container nav">
-      <a href="index.html" class="brand">Global Shots Photography</a>
 
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="brand">Global Shots Photography</a>
 
-      <nav class="nav-links" id="site-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a class="active" href="gallery.html">Gallery</a>
-        <a href="packages.html">Packages</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
 
-  <main>
-    <section>
-      <div class="container">
-        <span class="eyebrow">A look at my recent work</span>
-        <h1>Gallery</h1>
-        <p class="muted">A collection of moments captured with creativity, purpose, and genuine beauty. Tap any image to view it larger.</p>
+    <nav class="nav-links" id="site-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a class="active" href="gallery.html">Gallery</a>
+      <a href="packages.html">Packages</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-        <!-- AUTO-GENERATED GALLERY -->
-        <div class="gallery-grid" id="galleryGrid"></div>
+<!-- PREMIUM HERO -->
+<section class="hero about-hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Recent Work</p>
 
+      <h1>Moments Captured with Purpose</h1>
+
+      <p class="lead">
+        Explore a collection of portraits, lifestyle moments, and creative shots
+        captured with beauty, confidence, and intention.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn" href="contact.html">Book a Session</a>
+        <a class="btn secondary" href="packages.html">View Packages</a>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>© <span id="year"></span> Global Shots Photography.</p>
     </div>
-  </footer>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox-inner">
-      <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
-      <img id="lightboxImage" src="" alt="Expanded gallery image">
+    <div class="hero-card">
+      <img src="images/hero.jpg" alt="Global Shots Photography gallery highlight">
     </div>
   </div>
+</section>
 
-  <script src="script.js"></script>
+<main>
+
+  <section class="premium-section">
+    <div class="container">
+
+      <div class="section-heading">
+        <p class="eyebrow">Gallery</p>
+        <h2>A Look at My Recent Work</h2>
+        <p class="muted">
+          A collection of moments captured with creativity, purpose, and genuine beauty.
+          Tap any image to view it larger.
+        </p>
+      </div>
+
+      <!-- AUTO-GENERATED GALLERY -->
+      <div class="gallery-grid" id="galleryGrid"></div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>© <span id="year"></span> Global Shots Photography.</p>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+    <img id="lightboxImage" src="" alt="Expanded gallery image">
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
