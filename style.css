@@ -1,3 +1,5 @@
+Yes — here is the fully updated `style.css`:
+
 ```css
 /* RESET */
 * {
@@ -62,11 +64,7 @@ header {
   border: none;
   color: #111827;
   cursor: pointer;
-}
-
-.menu-toggle svg {
-  width: 28px;
-  height: 28px;
+  font-size: 1.8rem;
 }
 
 /* HERO */
@@ -81,6 +79,12 @@ header {
   align-items: center;
 }
 
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+
 .hero h1 {
   font-size: clamp(2rem, 5vw, 4rem);
   line-height: 1.1;
@@ -88,6 +92,7 @@ header {
   color: #111827;
 }
 
+.hero-content p,
 .lead {
   font-size: 1.15rem;
   color: #475569;
@@ -155,6 +160,71 @@ h1 {
 .muted {
   color: #64748b;
   margin-bottom: 20px;
+}
+
+/* PACKAGE INTRO */
+.intro {
+  text-align: center;
+  max-width: 750px;
+  margin: 30px auto 40px;
+}
+
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.intro p {
+  color: #475569;
+}
+
+/* PACKAGES */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin: 40px 0 60px;
+}
+
+.package-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.package-card h2 {
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.package-card p {
+  color: #475569;
+  margin-bottom: 16px;
+}
+
+.package-card .price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.package-card ul {
+  margin: 18px 0 24px;
+  padding-left: 20px;
+}
+
+.package-card li {
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.package-card.featured {
+  border: 2px solid #111827;
+  transform: translateY(-8px);
 }
 
 /* GALLERY GRID */
@@ -292,6 +362,14 @@ footer {
 
   .hero h1 {
     font-size: 2.4rem;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .package-card.featured {
+    transform: none;
   }
 }
 ```
