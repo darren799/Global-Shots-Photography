@@ -16,6 +16,13 @@ if (menuToggle && siteNav) {
     menuToggle.setAttribute("aria-expanded", String(!isOpen));
     siteNav.classList.toggle("open");
   });
+
+  siteNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      siteNav.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
 }
 
 // Auto-generate gallery
@@ -33,7 +40,7 @@ if (galleryGrid) {
 
     item.innerHTML = `
       <div class="gallery-photo">
-        <img src="${src}" alt="${alt}">
+        <img src="${src}" alt="${alt}" loading="lazy">
         <div class="photo-watermark">Global Shots Photography</div>
       </div>
     `;
